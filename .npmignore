@@ -90,10 +90,3 @@ yarn-error.log*
 npm-shrinkwrap.json
 package-lock.json
 yarn.lock
-
-# build output
-build/
-esm/
-
-# public
-public/
