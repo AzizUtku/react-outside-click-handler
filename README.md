@@ -1,68 +1,86 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Outside Click Handler
 
-## Available Scripts
+> A react component for handling outside clicks without using unnecessary DOM operations. Faster and more practical!
 
-In the project directory, you can run:
+## Getting Started
+It is developed for increasing efficiency when handling outside click. It does not use unnecessary DOM operations such as `contains` when handling outside click.
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+npm install react-outside-click-x
+```
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Usage
 
-### `npm test`
+```jsx
+import OutsideClickHandler from 'react-outside-click-x';
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+function MyComponent() {
+  return (
+    <OutsideClickHandler
+      onOutsideClick={() => {
+        alert('You clicked outside of this component!');
+      }}
+    >
+      Hello World
+    </OutsideClickHandler>
+  );
+}
+```
 
-### `npm run build`
+## Alternative Usage
+By default, the OutsideClickHandler renders a <div /> to wrap the subtree defined by children. It can be used alternatively without wrapping with additional div.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```jsx 
+import OutsideClickHandler from 'react-outside-click-x';
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+function MyComponent() {
+  return (
+    <OutsideClickHandler
+      onOutsideClick={() => {
+        alert('You clicked outside of this component!');
+      }}
+      targetElement={(ref) => { return (<MyComponent2 refHolder={ref} />) ;}}>
+    />
+  );
+}
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```jsx
+function MyComponent2(props) {
+  return (
+    <div ref={props.refHolder}>
+      ...
+    </div>
+  );
+}
+```
 
-### `npm run eject`
+## Props
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### onOutsideClick: `PropTypes.func.isRequired`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+When the user clicks outside of the given `children`, clickevent which is specified in `onOutsideClick` prop is triggered.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### children: `PropTypes.node`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+If `children` is defined, `OutsideClickHandler` wrap it with outer div and handles clicks outside of the given `children`.
 
-## Learn More
+### targetElement: `PropTypes.func`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+By default the `OutsideClickHandler` renders a `<div />` to wrap `children`. Children can be given in the `targetElement` prop, so `OutsideClickHandler` does not render `<div />` to wrap the `children` and the `children` is rendered without wrapping.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### closeable: `PropTypes.bool`
 
-### Code Splitting
+If the `closeable` prop is false, outside clicks will not close given node. It is by default true so when outside clicks occur, given node is closed.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### wrapperProps: `PropTypes.object`
 
-### Analyzing the Bundle Size
+When `targetElement` prop is not used, by default the `OutsideClickHandler` renders a `<div />` to wrap `children`. By using `wrapperProps` prop, some properties can be passed to outer div such as styling.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Contributing
+Please open an issue first to discuss the change you wish to make for major changes.
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
