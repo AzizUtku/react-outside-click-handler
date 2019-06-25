@@ -1,1 +1,1 @@
-module.exports = require('./src/OutsideClickHandler');
+module.exports = require('./dist/OutsideClickHandler');

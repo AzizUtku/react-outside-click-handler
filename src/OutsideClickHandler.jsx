@@ -31,11 +31,7 @@ class OutsideClickHandler extends Component {
   }
 
   componentWillUnmount() { 
-    this.node.current.removeEventListener(
-      "click",
-      this.insideClickHandler,
-      false
-    );
+    this.node.current.removeEventListener("click", this.insideClickHandler, false);
     document.removeEventListener("click", this.outsideClickHandler, false);
   }
 
@@ -48,7 +44,7 @@ class OutsideClickHandler extends Component {
       const { isVisible } = this.state;
       const { onOutsideClick, closeable } = this.props;
 
-      if (isVisible) {
+      if (isVisible && onOutsideClick) {
         onOutsideClick(event);
       }
       if (closeable) {

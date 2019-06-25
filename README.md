@@ -20,7 +20,7 @@ function MyComponent() {
   return (
     <OutsideClickHandler
       onOutsideClick={() => {
-        alert('You clicked outside of this component!');
+        alert('Clicked outside!');
       }}
     >
       Hello World
@@ -39,7 +39,7 @@ function MyComponent() {
   return (
     <OutsideClickHandler
       onOutsideClick={() => {
-        alert('You clicked outside of this component!');
+        alert('Clicked outside!');
       }}
       targetElement={(ref) => { return (<MyComponent2 refHolder={ref} />) ;}}>
     />

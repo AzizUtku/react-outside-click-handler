@@ -1,22 +1,16 @@
 {
   "name": "react-outside-click-x",
-  "version": "0.1.0",
+  "version": "0.2.2",
   "description": "A react component for handling outside clicks without using unnecessary DOM operations",
   "main": "index.js",
-  "dependencies": {
+  "peerDependencies": {
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-dom": "^16.8.6"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "prebuild": "npm run clean",
-    "build": "react-scripts build",
-    "clean": "rimraf build esm",
-    "lint": "eslint 'src/**/*.{js,jsx}' --fix",
-    "format": "prettier --write 'src/**/*.{js,jsx,css,scss}'"
+    "prepublishOnly": "babel src --out-dir dist",
+    "clean": "rimraf build esm"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,18 +24,19 @@
   "bugs": {
     "url": "https://github.com/AzizUtku/react-outside-click-handler/issues"
   },
+  "keywords": [
+    "react-outside-click-handler",
+    "react-outside-click",
+    "react-click-handler",
+    "react-click-outside"
+  ],
   "homepage": "https://github.com/AzizUtku/react-outside-click-handler#readme",
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-cli": "^6.26.0"
+  }
 }

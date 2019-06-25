@@ -95,5 +95,7 @@ yarn.lock
 build/
 esm/
 
-# public
-public/
+# other files
+/public
+/lib
+/dist
