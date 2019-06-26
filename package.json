@@ -1,6 +1,6 @@
 {
   "name": "react-outside-click-x",
-  "version": "0.2.2",
+  "version": "0.2.4",
   "description": "A react component for handling outside clicks without using unnecessary DOM operations",
   "main": "index.js",
   "peerDependencies": {
@@ -10,7 +10,9 @@
   "scripts": {
     "prebuild": "npm run clean",
     "prepublishOnly": "babel src --out-dir dist",
-    "clean": "rimraf build esm"
+    "clean": "rimraf build esm",
+    "lint": "eslint 'src/**/*.{js,jsx}' --fix",
+    "format": "prettier --write 'src/**/*.{js,jsx,css,scss}'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,6 +39,11 @@
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
-    "babel-cli": "^6.26.0"
+    "babel-cli": "^6.26.0",
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.14.2"
   }
 }

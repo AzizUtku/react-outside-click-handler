@@ -47,7 +47,7 @@ class OutsideClickHandler extends Component {
       if (isVisible && onOutsideClick) {
         onOutsideClick(event);
       }
-      if (closeable) {
+      if (closeable && this.node.current) {
         this.setState({
           isVisible: false
         });
