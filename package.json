@@ -1,18 +1,19 @@
 {
   "name": "react-outside-click-x",
-  "version": "0.2.4",
+  "version": "1.0.0",
   "description": "A react component for handling outside clicks without using unnecessary DOM operations",
   "main": "index.js",
   "peerDependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": ">15",
+    "react-dom": ">15"
   },
   "scripts": {
     "prebuild": "npm run clean",
-    "prepublishOnly": "babel src --out-dir dist",
+    "prepublishOnly": "jest && babel src --out-dir dist",
     "clean": "rimraf build esm",
     "lint": "eslint 'src/**/*.{js,jsx}' --fix",
-    "format": "prettier --write 'src/**/*.{js,jsx,css,scss}'"
+    "format": "prettier --write 'src/**/*.{js,jsx,css,scss}'",
+    "test": "jest --watch"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,13 +38,27 @@
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/plugin-transform-typescript": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.4.5",
+    "babel-eslint": "^6.1.2",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "^6.2.1",
+    "babel-plugin-react-transform": "^2.0.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^6.0.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.14.2"
+    "eslint-plugin-react": "^7.14.2",
+    "jest": "^24.8.0",
+    "react": ">15",
+    "react-dom": ">15",
+    "react-test-renderer": ">15"
   }
 }
